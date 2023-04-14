@@ -1,7 +1,9 @@
 from bs4 import BeautifulSoup as soup
 import requests
 import pandas as pd
-
+import openpyxl
+import json
+import shutil
 
 session = requests.Session()
 
@@ -20,6 +22,8 @@ page = 1
 sip1 = []
 sip2 = []
 sip3 = []
+count = 0
+
 dic_sip = {}
 
 while True:
@@ -34,24 +38,21 @@ while True:
        for sip_name in sip[1::5]:
            sip2.append(sip_name.text)
        for sip_pass in sip[2::5]:
-           sip3.append(sip_pass.text)                 
+           sip3.append(sip_pass.text)
+           count += 1
+                            
     else:
-        break          
+        break 
     page += 1
-dic_sip = {sip1[i]: [sip2[i], sip3[i]] for i in range(len(sip1))}     
+sip4 = list(range(1, count + 1))
+dic_sip = {sip1[i]: [sip2[i], sip3[i], sip4[i]] for i in range(len(sip1))}     
 
-print(dic_sip)
+#
 
 # Сохранем в Exel Pandas
 df = pd.DataFrame.from_dict(dic_sip,'index').reset_index()
-df.columns = ['Sip номер', 'Квартира', 'Пароль']
+df.columns = ['Sip номер', 'Sip имя', 'Sip пароль', 'Квартира']
 df.to_excel('SIP_SORT2.xlsx', index=False)   
        
 
-
-# URL = 'https://sip.bas-ip.com/family/sip-numbers/'
-# page = requests.get(URL)
-
-# soup = BeautifulSoup(page.text, "html.parser")
-
-# print(soup)
+print('GOOD')
