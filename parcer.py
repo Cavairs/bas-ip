@@ -10,8 +10,8 @@ session = requests.Session()
 link = 'https://sip.bas-ip.com/login_check'
 
 data ={
-    'appbundle_login[email]': 'pikasso1k1@yandex.ru',
-    'appbundle_login[password]': '112274'
+    'appbundle_login[email]': 'skandinavskybulvar.19@gmail.com',
+    'appbundle_login[password]': 'A101a101'
 }
 
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
@@ -47,7 +47,6 @@ while True:
 sip4 = list(range(1, count + 1))
 dic_sip = {sip1[i]: [sip2[i], sip3[i], sip4[i]] for i in range(len(sip1))}     
 
-#
 
 # Сохранем в Exel Pandas
 df = pd.DataFrame.from_dict(dic_sip,'index').reset_index()
