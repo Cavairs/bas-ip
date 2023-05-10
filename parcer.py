@@ -7,11 +7,11 @@ import shutil
 
 session = requests.Session()
 
-link = 'https://sip.bas-ip.com/login_check'
+link = 'https://ru.sip.bas-ip.com/login_check'
 
 data ={
-    'appbundle_login[email]': 'skandinavskybulvar.19@gmail.com',
-    'appbundle_login[password]': 'A101a101'
+    'appbundle_login[email]': 'prokshino9@mail.ru',
+    'appbundle_login[password]': 'prokshino9@mail.ru'
 }
 
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
@@ -27,7 +27,7 @@ count = 0
 dic_sip = {}
 
 while True:
-    profile_info = 'https://sip.bas-ip.com/family/sip-numbers/?page=' +str(page) 
+    profile_info = 'https://ru.sip.bas-ip.com/family/sip_number/?page=' +str(page) 
     profile_response = session.get(profile_info, headers=header).text
     html = soup(profile_response, 'lxml')
     sip = html.find('table', class_='table').find_all('td')  

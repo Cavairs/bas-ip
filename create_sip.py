@@ -52,8 +52,8 @@ driver.find_element(By.ID, "appbundle_login_password").send_keys(password_enter)
 driver.find_element(By.CLASS_NAME, "btn-success").click()    
     
          
-start_number = 629  # указываем с какой квартиры начинать
-count = int(input('Укажите колчисество квартир '))  # указываем количество квартир
+start_number = 1  # указываем с какой квартиры начинать
+count = 2
 chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 number_pass = 1
 length = 3  # длина пароля  (Плюс три символа)
@@ -61,12 +61,12 @@ number_pass = int(number_pass)
 length = int(length)
 
 for i in range(count):
-    my_string = "19kv"
+    my_string = "Prok9Kalitka"
     number = start_number + i
     if server_enter == 1:
         driver.get("https://sip.bas-ip.com/family/sip-numbers/new")
     elif server_enter == 2:
-        driver.get("https://ru.sip.bas-ip.com/family/sip-numbers/new")    
+        driver.get("https://ru.sip.bas-ip.com/family/sip_number/new")    
     driver.find_element(By.ID, "appbundle_sipnumber_name").send_keys(my_string + str(number))
     for n in range(number_pass):
         password = str(random.randint(0, 9))
